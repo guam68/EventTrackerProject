@@ -54,6 +54,7 @@ public class CatchController {
 	public Catch createCatch(@RequestBody Catch cat, HttpServletResponse resp,
 			HttpServletRequest req) {
 		Catch created = null;
+		System.err.println(cat);
 		try {
 			created = serv.createCatch(cat);
 			resp.setStatus(200);
