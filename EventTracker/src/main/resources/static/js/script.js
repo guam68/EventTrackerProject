@@ -23,6 +23,9 @@ function getAll() {
 
     if (xhr.readyState === 4 && xhr.status < 400) {
       let data = JSON.parse(xhr.responseText);
+      let avgLength = getAvgLength(data);
+      document.getElementById('avgLength').textContent = 
+        'Avererage catch length: ' + avgLength;
 
       for (let fish of data) {
         let fishDiv = document.createElement('div');
@@ -198,4 +201,18 @@ function populateForm(fish){
   form.longitude.value = fish.longitude;
   form.date.value = fish.date;
   form.technique.value = fish.technique; 
+}
+
+function getAvgLength(data){
+  let sumLength = 0;
+  let count = 0;
+  for (let fish of data) {
+    sumLength += parseInt(fish.length);
+    count++;
+  }
+  console.log(sumLength);
+  console.log(count);
+  console.log(typeof sumLength);
+  console.log(typeof count);
+  return sumLength / count;
 }
