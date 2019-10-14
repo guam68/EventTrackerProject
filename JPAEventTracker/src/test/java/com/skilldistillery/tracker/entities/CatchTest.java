@@ -1,5 +1,6 @@
 package com.skilldistillery.tracker.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
@@ -32,6 +33,7 @@ class CatchTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		cat = em.find(Catch.class, 1);
+
 	}
 
 	@AfterEach

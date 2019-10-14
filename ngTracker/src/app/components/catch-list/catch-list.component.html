@@ -1,0 +1,19 @@
+<table class="table table-striped table-hover">
+  <thead class="thead thead-dark">
+    <th>Date</th>
+    <th>Length</th>
+    <th>Weight</th>
+    <th>Location</th>
+    <th>Technique</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cat of catches">
+      <td>{{ cat.date }}</td>
+      <td>{{ cat.length }} inches</td>
+      <td>{{ cat.weight }} lbs</td>
+      <td>{{ cat.lat }}, {{ cat.longitude }}</td>
+      <td>{{ cat.technique }}</td>
+    </tr>
+  </tbody>
+</table>
+

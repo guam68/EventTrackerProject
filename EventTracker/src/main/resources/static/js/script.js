@@ -15,7 +15,7 @@ window.addEventListener('load', e => {
 
 function getAll() {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', '/api/catches/');
+  xhr.open('GET', '/api/catches');
   let fields = ['length', 'weight', 'lat', 'longitude', 'technique'];
 
   xhr.onreadystatechange = () => {
@@ -25,7 +25,7 @@ function getAll() {
       let data = JSON.parse(xhr.responseText);
       let avgLength = getAvgLength(data);
       document.getElementById('avgLength').textContent = 
-        'Avererage catch length: ' + avgLength;
+        'Average catch length: ' + avgLength;
 
       for (let fish of data) {
         let fishDiv = document.createElement('div');
@@ -83,7 +83,7 @@ function getAll() {
 
 function updateCatch(id) {
   let xhr = new XMLHttpRequest();
-  xhr.open('PUT', '/api/catches/' + id);
+  xhr.open('PUT', 'api/catches/' + id);
   xhr.setRequestHeader('Content-type', 'application/json');
 
   let form = document.fishForm;
@@ -119,7 +119,7 @@ function updateCatch(id) {
 
 function deleteCatch(id) {
   let xhr = new XMLHttpRequest();
-  xhr.open('DELETE', '/api/catches/' + id);
+  xhr.open('DELETE', 'api/catches/' + id);
 
   xhr.onreadystatechange = () => {
     let message = document.getElementById('message');
@@ -141,7 +141,7 @@ function deleteCatch(id) {
 
 function createCatch() {
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', '/api/catches/');
+  xhr.open('POST', 'api/catches');
   xhr.setRequestHeader('Content-type', 'application/json');
 
   let form = document.fishForm;
